@@ -6,6 +6,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  List<String> yesterdayOptions = ["I was jerking dick", "I was playing wow", "I was drinking beer"];
+  List<String> todayOptions = ["I will continue", "I will slap your mom", "I will do nothing"];
+  String _yesterdayTitle;
+  String _todayTitle;
+
+  @override
+  void initState() {
+    _changeTitles();
+    super.initState();
+  }
+
+
+  void _changeTitles() {
+    setState(() {
+      _yesterdayTitle = (yesterdayOptions..shuffle()).first;
+      _todayTitle = (todayOptions..shuffle()).first;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height - 100;
@@ -49,13 +69,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   Positioned(
                       top: titleContainerHeight,
                       child: Container(
-                          margin: EdgeInsets.only(left: 40, right: 40),
-                          decoration: BoxDecoration(
-                              color: Colors.black54,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          width: screenWidth,
-                          height: textContainerHeight)),
+                        margin: EdgeInsets.only(left: 40, right: 40),
+                        decoration: BoxDecoration(
+                            color: Colors.black54,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        width: screenWidth,
+                        height: textContainerHeight,
+                        child: Center(
+                            child: Text(
+                              _yesterdayTitle,
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        )),
+                      )),
                   Positioned(
                       bottom: titleContainerHeight,
                       width: screenWidth,
@@ -67,6 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 BorderRadius.all(Radius.circular(20))),
                         width: 200,
                         height: 200,
+                        child: Center(
+                            child: Text(
+                              _todayTitle,
+                              style: TextStyle(color: Colors.white, fontSize: 30),
+                            )),
                       )),
                   Positioned(
                       top: 320,
@@ -94,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             customBorder: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(100)),
                             onTap: () {
-                              print("yolo");
+                              _changeTitles();
                             },
                           ),
                         ),
