@@ -9,8 +9,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height - 100;
-    final screenWidth = MediaQuery.of(context).size.width;
-    final textContainerHeight = screenHeight / 2.8;
+    final screenWidth = MediaQuery.of(context).size.width - 40;
+    final textContainerHeight = screenHeight / 2.7;
     final titleContainerHeight = screenHeight / 10;
 
     return SafeArea(
@@ -29,17 +29,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   Positioned(
                       top: titleContainerHeight,
                       child: Container(
+                          margin: EdgeInsets.only(left: 40, right: 40),
+                          decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
                           width: screenWidth,
-                          height: textContainerHeight,
-                          color: Colors.grey)),
+                          height: textContainerHeight)),
                   Positioned(
                       bottom: titleContainerHeight,
                       width: screenWidth,
                       height: textContainerHeight,
-                      child:
-                          Container(width: 200, height: 200, color: Colors.lightGreen)),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.lightGreen,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        width: 200,
+                        height: 200,
+                      )),
                   Positioned(
-                      top: 310,
+                      top: 320,
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius:
@@ -49,13 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 150,
                       )),
                   Positioned(
-                      top: 325,
+                      top: 335,
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(100)),
-                            color: Colors.red
-                        ),
+                                BorderRadius.all(Radius.circular(100)),
+                            color: Colors.red),
                         width: 120,
                         height: 120,
                         child: Material(
@@ -63,8 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.all(Radius.circular(100)),
                           child: InkWell(
                             customBorder: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100)
-                            ),
+                                borderRadius: BorderRadius.circular(100)),
                             onTap: () {
                               print("yolo");
                             },
