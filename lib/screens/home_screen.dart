@@ -27,11 +27,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 // fit: StackFit.expand,
                 children: [
                   Positioned(
+                    top: 10,
+                    child: Text(
+                      "YESTERDAY...",
+                      style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    child: Text(
+                      "TODAY...",
+                      style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green),
+                    ),
+                  ),
+                  Positioned(
                       top: titleContainerHeight,
                       child: Container(
                           margin: EdgeInsets.only(left: 40, right: 40),
                           decoration: BoxDecoration(
-                              color: Colors.grey,
+                              color: Colors.black54,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                           width: screenWidth,
@@ -42,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: textContainerHeight,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.lightGreen,
+                            color: Colors.green,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         width: 200,
@@ -88,8 +108,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-// decoration: BoxDecoration(
-// color: Colors.white,
-// border: Border.all(color: Colors.grey),
-// borderRadius: BorderRadius.circular(10)),
