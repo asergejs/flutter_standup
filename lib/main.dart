@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:standup/screens/animation_screen.dart';
 import 'package:standup/screens/home_screen.dart';
+import 'package:standup/screens/test_main_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      // home: TestMainScreen(),]
+      routes: {
+        '/' : (ctx) => TestMainScreen(),
+        "/animation" : (ctx) => AnimationScreen(),
+      },
     );
   }
 }
